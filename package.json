@@ -20,7 +20,7 @@
   "dependencies": {
     "socket.io": "*",
     "httpserver": "*",
-    "wiring-pi": "*"
+    "wiring-pi": ">=2.1.1"
   },
   "author": "Nicolay Hekkens <nhekkens@gmail.com>",
   "license": "GPL-3.0",
