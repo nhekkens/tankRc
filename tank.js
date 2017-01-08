@@ -36,30 +36,38 @@ io.on('connection', function (socket) {
 
     // forward
     if( data.forward ) {
-    	wpi.digitalWrite(forwardPin, wpi.HIGH );
+    	console.log('forward - ON');
+    	wpi.digitalWrite(forwardPin, 1 );
     } else {
-    	wpi.digitalWrite(forwardPin, wpi.LOW );
+    	console.log('forward - OFF');
+    	wpi.digitalWrite(forwardPin, 0 );
     }
 
     // left
     if( data.left ) {
-    	wpi.digitalWrite(leftPin, wpi.HIGH );
+    	console.log('left - ON');
+    	wpi.digitalWrite(leftPin, 1 );
     } else {
-    	wpi.digitalWrite(leftPin, wpi.LOW );
+    	console.log('left - OFF');
+    	wpi.digitalWrite(leftPin, 0 );
     }
 
     // back
     if( data.back ) {
-    	wpi.digitalWrite(backPin, wpi.HIGH );
+    	console.log('back - ON');
+    	wpi.digitalWrite(backPin, 1 );
     } else {
-    	wpi.digitalWrite(backPin, wpi.LOW );
+    	console.log('back - OFF');
+    	wpi.digitalWrite(backPin, 0 );
     }
 
     // right
     if( data.right ) {
-    	wpi.digitalWrite(rightPin, wpi.HIGH );
+    	log('right - ON');
+    	wpi.digitalWrite(rightPin, 1 );
     } else {
-    	wpi.digitalWrite(rightPin, wpi.LOW );
+    	log('right - OFF');
+    	wpi.digitalWrite(rightPin, 0 );
     }
 
     console.log('Command Executed');
