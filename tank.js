@@ -1,9 +1,9 @@
 // wiring-pi
 var wpi = require('wiring-pi');
-var forwardPin = 7;
+var forwardPin = 15;
 var leftPin = 11;
-var backPin = 13;
-var rightPin = 15;
+var backPin = 29;
+var rightPin = 7;
 wpi.setup('wpi');
 wpi.pinMode(forwardPin, wpi.OUTPUT);
 wpi.pinMode(leftPin, wpi.OUTPUT);
