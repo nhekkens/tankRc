@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>tankRc</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+</head>
+
+<body>
+    <div class="container" style="text-align: center;">
+    	<div class="col-xs-12">
+    		<h2>W</h2>
+    		<input class="forward" type="checkbox" data-toggle="toggle" data-on="Enabled" data-off="Disabled">
+		</div>
+		<div class="col-xs-4">
+    		<h2>A</h2>
+    		<input class="left" type="checkbox" data-toggle="toggle" data-on="Enabled" data-off="Disabled">
+		</div>
+		<div class="col-xs-4">
+    		<h2>S</h2>
+    		<input class="back" type="checkbox" data-toggle="toggle" data-on="Enabled" data-off="Disabled">
+		</div>
+		<div class="col-xs-4">
+    		<h2>D</h2>
+    		<input class="right" type="checkbox" data-toggle="toggle" data-on="Enabled" data-off="Disabled">
+    	</div>
+    </div>
+
+
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+	var socket = io();
+	var forwardButton = $('.forward');
+	var leftButton = $('.left');
+	var backButton = $('.back');
+	var rightButton = $('.right');
+
+	var keyMap = {87: false, 65: false, 83: false, 68: false};
+
+	$(document).keydown(function(e) {
+		console.log(e.keyCode)
+	    if (e.keyCode in keyMap) {
+	        keyMap[e.keyCode] = true;
+	    }
+	    sendCommand();
+	}).keyup(function(e) {
+	    if (e.keyCode in keyMap) {
+	        keyMap[e.keyCode] = false;
+	    }
+	    sendCommand();
+	});
+
+	var sendCommand = function() {
+
+		if ( keyMap[87] ) {
+			forwardButton.bootstrapToggle('on');
+		} else {
+			forwardButton.bootstrapToggle('off');
+		}
+
+		if ( keyMap[65] ) {
+			leftButton.bootstrapToggle('on');
+		} else {
+			leftButton.bootstrapToggle('off');
+		}
+
+		if ( keyMap[83] ) {
+			backButton.bootstrapToggle('on');
+		} else {
+			backButton.bootstrapToggle('off');
+		}
+
+		if ( keyMap[68] ) {
+			rightButton.bootstrapToggle('on');
+		} else {
+			rightButton.bootstrapToggle('off');
+		}
+
+		socket.emit('command', {
+	        forward: keyMap[87],
+	        left: keyMap[65],
+	        back: keyMap[83],
+	        right: keyMap[68]
+	    });
+	}
+
+	sendCommand();
+</script>
+
+</html>

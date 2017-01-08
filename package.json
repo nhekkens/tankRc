@@ -1,0 +1,34 @@
+{
+  "name": "tankRc",
+  "version": "0.0.1",
+  "description": "Remote control tank implementation with Node.js for Raspberry Pi using wiringpi.",
+  "main": "tank.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhekkens/tankRc.git"
+  },
+  "keywords": [
+    "Rc Tank",
+    "Camera Feed",
+    "Node",
+    "iot",
+    "Raspberry Pi"
+  ],
+  "dependencies": {
+    "socket.io": "*",
+    "httpserver": "*"
+  },
+  "author": "Nicolay Hekkens <nhekkens@gmail.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/nhekkens/tankRc/issues"
+  },
+  "homepage": "https://github.com/nhekkens/tankRc#readme",
+  "preferGlobal": "true",
+  "bin": {
+    "tankRc": "tankRc.js"
+  }
+}
