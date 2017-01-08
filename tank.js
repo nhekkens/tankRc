@@ -1,14 +1,14 @@
 // wiring-pi
 var wpi = require('wiring-pi');
-// var forwardPin = 10;
-// var leftPin = 11;
-// var backPin = 12;
-// var rightPin = 13;
-// wpi.setup('wpi');
-// wpi.pinMode(forwardPin, wpi.OUTPUT);
-// wpi.pinMode(leftPin, wpi.OUTPUT);
-// wpi.pinMode(backPin, wpi.OUTPUT);
-// wpi.pinMode(rightPin, wpi.OUTPUT);
+var forwardPin = 3;
+var leftPin = 5;
+var backPin = 7;
+var rightPin = 8;
+wpi.setup('wpi');
+wpi.pinMode(forwardPin, wpi.OUTPUT);
+wpi.pinMode(leftPin, wpi.OUTPUT);
+wpi.pinMode(backPin, wpi.OUTPUT);
+wpi.pinMode(rightPin, wpi.OUTPUT);
 
 // // socket.io
 // var app = require('http').createServer(handler)
@@ -79,20 +79,23 @@ var wpi = require('wiring-pi');
 // "wiring-pi": ">=2.1.1",
 // GPIO pin of the led
 
-var configPin = 7;
+// var configPin = 7;
 // Blinking interval in usec
 var configTimeout = 1000;
 
-wpi.setup('wpi');
-wpi.pinMode(configPin, wpi.OUTPUT);
+// wpi.setup('wpi');
+// wpi.pinMode(configPin, wpi.OUTPUT);
 
 var isLedOn = 0;
 
 setInterval(function() {
 	isLedOn = +!isLedOn;
 	//isLedOn = !isLedOn;
-	wpi.digitalWrite(configPin, isLedOn );
-	console.log(configPin, isLedOn);
+	wpi.digitalWrite(forwardPin, isLedOn );
+	wpi.digitalWrite(leftPin, isLedOn );
+	wpi.digitalWrite(backPin, isLedOn );
+	wpi.digitalWrite(rightPin, isLedOn );
+	// console.log(configPin, isLedOn);
 }, configTimeout);
 
 
