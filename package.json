@@ -19,7 +19,8 @@
   ],
   "dependencies": {
     "socket.io": "*",
-    "httpserver": "*"
+    "httpserver": "*",
+    "wiring-pi": "*"
   },
   "author": "Nicolay Hekkens <nhekkens@gmail.com>",
   "license": "GPL-3.0",
