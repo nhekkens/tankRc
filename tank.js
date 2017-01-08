@@ -63,10 +63,10 @@ io.on('connection', function (socket) {
 
     // right
     if( data.right ) {
-    	log('right - ON');
+    	console.log('right - ON');
     	wpi.digitalWrite(rightPin, 1 );
     } else {
-    	log('right - OFF');
+    	console.log('right - OFF');
     	wpi.digitalWrite(rightPin, 0 );
     }
 
